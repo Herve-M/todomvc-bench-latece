@@ -1,0 +1,7 @@
+{
+  "src": {
+    "app": {
+      "todomvc" : "https://github.com/tastejs/todomvc.git"
+    }
+  }
+}
