@@ -19,7 +19,7 @@ casper.test.begin('- Benchmark on [[FRAMEWORK]] -', 3, function suite(test) {
       return todos;
   }
 
-  casper.start("src/app/todomvc/examples/FILE_URL", function() {
+  casper.start('src/app/todomvc/examples/FILE_URL', function() {
     //this.echo(this.getCurrentUrl());
     links = this.evaluate(getTodos);
     test.assert((links.length === 0), 'list should be empty');

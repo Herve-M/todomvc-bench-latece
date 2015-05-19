@@ -38,7 +38,7 @@ module.exports = function(grunt) {
     casper: {
       options: {
         test: true,
-        parallel : true,
+        parallel : false,
         concurrency : 1,
         'log-level' : 'error',
         'fail-fast' : false,
@@ -56,20 +56,22 @@ module.exports = function(grunt) {
       },
       advancedTest: {
         src: ['tests/test_*.js'],
-        dest : function(input) {
-          str = input.replace('tests/', '');
-          return 'tests/results/'+str.replace(/\.js$/,'phs.xml');
-        }
+        //https://github.com/iamchrismiller/grunt-casper/issues/68
+        //dest : function(input) {
+        //  var str = input.replace('tests/', '');
+        //  return 'tests/results/'+str.replace(/\.js$/,'phs.xml');
+        //}
       },
       advancedTest_sljs: {
         options: {
           engine : 'slimerjs'
         },
         src: ['tests/test_*.js'],
-        dest : function(input) {
-          str = input.replace('tests/', '');
-          return 'tests/results/'+str.replace(/\.js$/,'sljs.xml');
-        }
+        //https://github.com/iamchrismiller/grunt-casper/issues/68
+        //dest : function(input) {
+        //  var str = input.replace('tests/', '');
+        //  return 'tests/results/'+str.replace(/\.js$/,'sljs.xml');
+        //}
       },
     },
     availabletasks: {
