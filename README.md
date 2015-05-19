@@ -48,7 +48,7 @@ To see all available commands use `grunt`
 * `grunt setup` : Clone TodoMVC Git repo && generate tests
 * `grunt generate` : Generate test scripts
 * `grunt test-advanced-phjs` : Launch all test with PhantomJS
-* `grunt test-advanced-SlimerJS` : Launch all test with SlimerJS
+* `grunt test-advanced-sljs` : Launch all test with SlimerJS
 
 ## Known limitations
 
