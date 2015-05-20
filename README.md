@@ -46,7 +46,8 @@ grunt setup
 To see all available commands use `grunt`
 
 * `grunt setup` : Clone TodoMVC Git repo && generate tests
-* `grunt generate` : Generate test scripts
+* `grunt generate-master` : Generate test scripts for master branch
+* `grunt generate-130` : Generate test scripts for 1.3.0 tag
 * `grunt test-advanced-phjs` : Launch all test with PhantomJS
 * `grunt test-advanced-sljs` : Launch all test with SlimerJS
 

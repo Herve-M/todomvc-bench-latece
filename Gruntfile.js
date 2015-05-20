@@ -27,9 +27,24 @@ module.exports = function(grunt) {
       },
     },
     run: {
-      tool: {
+      master: {
         cmd: 'tests/generation/generate.sh'
-      }
+      },
+      tag130: {
+        cmd: 'tests/generation/generate-1.3.0.sh'
+      },
+      checkout130:{
+        cmd: 'tests/generation/checkout.sh',
+        args: [
+          '--130'
+        ]
+      },
+      checkoutMaster:{
+        cmd: 'tests/generation/checkout.sh',
+        args: [
+          '--master'
+        ]
+      },
     },
     clean: {
       tests: ["tests/test_*.js", "!tests/basicTest.js", "!tests/advancedTest.js"],
@@ -94,15 +109,16 @@ module.exports = function(grunt) {
 
   //Setup
   grunt.registerTask('default', ['availabletasks']);
-  grunt.registerTask('setup', 'Setup TodoMVC App. and generate Tests',['batch_git_clone', 'run']);
-  grunt.registerTask('generate', 'Generate Tests', ['run']);
+  grunt.registerTask('setup', 'Setup TodoMVC App. and generate Tests [master]',['batch_git_clone', 'run:checkoutMaster']);
+  grunt.registerTask('generate-master', 'Generate Tests for master branch', ['clean:tests', 'clean:results', 'run:checkoutMaster', 'run:master']);
+  grunt.registerTask('generate-130', 'Generate Tests for 1.3.0 tag', ['clean:tests', 'clean:results', 'run:checkout130', 'run:tag130']);
   //Clean
   grunt.registerTask('clean-all', 'Delete all tests and results', ['clean:tests', 'clean:results']);
   grunt.registerTask('clean-tests', 'Delete all tests',['clean:tests']);
   grunt.registerTask('clean-results', 'Delete all results',['clean:results']);
   //Test
-  grunt.registerTask('test-basic-phjs', 'Launch basic test with PhantomJS',['casper:basicTest']);
-  grunt.registerTask('test-basic-sljs', 'Launch basic test with SlimerJS',['casper:basicTest_sljs']);
+  //grunt.registerTask('test-basic-phjs', 'Launch basic test with PhantomJS',['casper:basicTest']);
+  //grunt.registerTask('test-basic-sljs', 'Launch basic test with SlimerJS',['casper:basicTest_sljs']);
   grunt.registerTask('test-advanced-phjs', 'Launch all test with PhantomJS',['casper:advancedTest']);
   grunt.registerTask('test-advanced-sljs', 'Launch all test with SlimerJS',['casper:advancedTest_sljs']);
   //Other
