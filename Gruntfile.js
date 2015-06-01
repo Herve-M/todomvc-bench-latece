@@ -125,7 +125,7 @@ module.exports = function(grunt) {
   grunt.registerTask('generate-clean', 'Generate todos cleaner', ['run:masterClean']);
   grunt.registerTask('generate-130-clean', 'Generate todos cleaner', ['run:tag130Clean']);
   //Clean
-  grunt.registerTask('clean-all', 'Delete all tests and results', ['casper:cleanFramework', 'clean:tests', 'clean:cleaners', 'clean:results']);
+  grunt.registerTask('clean-all', 'Delete all tests and results', ['clean:tests', 'clean:cleaners', 'clean:results']);
   grunt.registerTask('clean-tests', 'Delete all tests',['clean:tests']);
   grunt.registerTask('clean-results', 'Delete all results',['clean:results']);
   grunt.registerTask('clean-todo', 'Delete all todos', ['casper:cleanFramework']);
