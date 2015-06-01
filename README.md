@@ -40,6 +40,16 @@ cd todomvc-bench-latece && git checkout master &&
 npm install &&
 grunt setup
 ```
+## Workflow
+
+You must first choose a version to work with, Master or 1.3.0.  
+After do `grunt generate-*version*`, (replace version with master or 130).  
+At end launch the test with `grunt test-advanced-phjs`  
+
+If you launch many time the test and ended it not carefully, you will have
+some memory problem. So you can generate "cleaners".
+
+`grunt generate-*version* && grunt clean-todo`
 
 ## Commands
 
@@ -48,6 +58,8 @@ To see all available commands use `grunt`
 * `grunt setup` : Clone TodoMVC Git repo && generate tests
 * `grunt generate-master` : Generate test scripts for master branch
 * `grunt generate-130` : Generate test scripts for 1.3.0 tag
+* `grunt generate-clean` : Generate cleaning scripts for master branch
+* `grunt generate-130-clean` : Generate cleaning scripts for 1.3.0 tag
 * `grunt test-advanced-phjs` : Launch all test with PhantomJS
 * `grunt test-advanced-sljs` : Launch all test with SlimerJS
 

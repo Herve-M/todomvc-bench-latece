@@ -30,3 +30,4 @@ node_modules
 src
 tests/results
 tests/test_*.js
+tests/clean_*.js
