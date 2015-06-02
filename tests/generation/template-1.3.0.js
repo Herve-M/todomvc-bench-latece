@@ -19,9 +19,16 @@ casper.test.begin('- Benchmark on [[FRAMEWORK]] -', 3, function suite(test) {
       return todos;
   }
 
+  function getDestroy() {
+    var todos = document.querySelectorAll('.destroy');
+    return todos.length;
+  }
+
   casper.start('FILE_URL', function() {
     //this.echo(this.getCurrentUrl());
+    casper.page.injectJs('src/utils/es5-shim/es5-shim.min.js');
     links = this.evaluate(getTodos);
+    casper.log(links.length, 'info');
     test.assert((links.length === 0), 'list should be empty');
   });
 
@@ -42,7 +49,11 @@ casper.test.begin('- Benchmark on [[FRAMEWORK]] -', 3, function suite(test) {
 
   //Delete
   casper.then(function(){
-    while (this.exists(selectors.delete_todo)) {
+    //while (this.evaluate(getDestroy) != 0) {
+    //while (this.exists(selectors.delete_todo)) {
+    //  this.click(selectors.delete_todo);
+    //}
+    for (i = 0; i < 500; i++) {
       this.click(selectors.delete_todo);
     }
     casper.log('Delete Finish', 'info');
@@ -50,6 +61,7 @@ casper.test.begin('- Benchmark on [[FRAMEWORK]] -', 3, function suite(test) {
 
   casper.then(function() {
     links = this.evaluate(getTodos);
+    casper.log(links.length, 'info');
     test.assert((links.length === 0), 'list should be empty');
   });
 

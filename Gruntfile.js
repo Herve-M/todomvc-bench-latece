@@ -120,6 +120,7 @@ module.exports = function(grunt) {
   //Setup
   grunt.registerTask('default', ['availabletasks']);
   grunt.registerTask('setup', 'Setup TodoMVC App. and generate Tests [master]',['batch_git_clone', 'run:checkoutMaster']);
+  grunt.registerTask('setup-130', 'Setup TodoMVC App. and generate Tests [1.3.0]',['batch_git_clone', 'run:checkout130']);
   grunt.registerTask('generate-master', 'Generate Tests for master branch', ['clean:tests', 'clean:results', 'run:checkoutMaster', 'run:master']);
   grunt.registerTask('generate-130', 'Generate Tests for 1.3.0 tag', ['clean:tests', 'clean:results', 'run:checkout130', 'run:tag130']);
   grunt.registerTask('generate-clean', 'Generate todos cleaner', ['run:masterClean']);

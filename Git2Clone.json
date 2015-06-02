@@ -2,6 +2,9 @@
   "src": {
     "app": {
       "todomvc" : "https://github.com/tastejs/todomvc.git"
+    },
+    "utils": {
+      "es5-shim" : "https://github.com/es-shims/es5-shim.git"
     }
   }
 }

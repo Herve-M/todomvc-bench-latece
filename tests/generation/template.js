@@ -21,15 +21,17 @@ casper.test.begin('- Benchmark on [[FRAMEWORK]] -', 3, function suite(test) {
 
   casper.start('src/app/todomvc/examples/FILE_URL', function() {
     //this.echo(this.getCurrentUrl());
+    casper.page.injectJs('src/utils/es5-shim/es5-shim.min.js');
     links = this.evaluate(getTodos);
+    casper.log(links.length, 'info');
     test.assert((links.length === 0), 'list should be empty');
   });
 
   //Add
   casper.then(function(){
    for (i = 0; i < 500; i++) {
-      this.sendKeys('#new-todo', 'casperjs'+i);
-      this.sendKeys('#new-todo', casper.page.event.key.Enter);
+      this.sendKeys('input#new-todo', 'casperjs'+i);
+      this.sendKeys('input#new-todo', casper.page.event.key.Enter);
    }
    casper.log('Insert Finish', 'info');
   });
@@ -50,6 +52,7 @@ casper.test.begin('- Benchmark on [[FRAMEWORK]] -', 3, function suite(test) {
 
   casper.then(function() {
     links = this.evaluate(getTodos);
+    casper.log(links.length, 'info');
     test.assert((links.length === 0), 'list should be empty');
   });
 

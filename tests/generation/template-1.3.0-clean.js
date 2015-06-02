@@ -21,6 +21,7 @@ casper.test.begin('- Cleaning on [[FRAMEWORK]] -', 1, function suite(test) {
 
   casper.start('FILE_URL', function() {
     //this.echo(this.getCurrentUrl());
+    casper.page.injectJs('src/utils/es5-shim/es5-shim.min.js');
     links = this.evaluate(getTodos);
     casper.log(links.length, 'info');
 
