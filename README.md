@@ -49,13 +49,14 @@ At end launch the test with `grunt test-advanced-phjs`
 If you launch many time the test and ended it not carefully, you will have
 some memory problem. So you can generate "cleaners".
 
-`grunt generate-*version* && grunt clean-todo`
+`grunt generate-*version*-clean && grunt clean-todo`
 
 ## Commands
 
 To see all available commands use `grunt`
 
-* `grunt setup` : Clone TodoMVC Git repo && generate tests
+* `grunt setup` : Clone TodoMVC Git repo && setup nmp/bower on master branch
+* `grunt setup-130` : Clone TodoMVC Git repo && setup npm/bowwer on 1.3.0 tag
 * `grunt generate-master` : Generate test scripts for master branch
 * `grunt generate-130` : Generate test scripts for 1.3.0 tag
 * `grunt generate-clean` : Generate cleaning scripts for master branch
