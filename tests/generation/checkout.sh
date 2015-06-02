@@ -25,6 +25,10 @@ done
 
 cd src/app/todomvc
 
+git fetch --all
+git reset --hard origin/master
+git pull origin master
+
 if [ "$ARG_130" = true ]; then
   git checkout 1.3.0 &&
   npm install && bower install
