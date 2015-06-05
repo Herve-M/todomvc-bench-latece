@@ -33,12 +33,19 @@ casper.test.begin('- Benchmark on [[FRAMEWORK]] -', 3, function suite(test) {
   });
 
   //Add
-  casper.then(function(){
-   for (i = 0; i < 500; i++) {
+  casper.waitFor(function check() {
+    return this.evaluate(function() {
+        return document.querySelectorAll('#new-todo').length === 1;
+    });
+  }, function then() {
+    for (i = 0; i < 500; i++) {
+      this.click('input#new-todo');
       this.sendKeys('#new-todo', 'casperjs'+i);
       this.sendKeys('#new-todo', casper.page.event.key.Enter);
-   }
-   casper.log('Insert Finish', 'info');
+    }
+    casper.log('Insert Finish', 'info');
+  }, function timeout() {
+    this.die("Fail.", 1);
   });
 
   casper.then(function() {

@@ -62,7 +62,7 @@ module.exports = function(grunt) {
         test: true,
         parallel : false,
         concurrency : 1,
-        'log-level' : 'error',
+        'log-level' : 'info',
         'fail-fast' : false,
         concise : false,
         engine : 'phantomjs'

@@ -8,9 +8,13 @@ rootpath[4]="src/app/todomvc/labs/dependency-examples"
 for path in "${rootpath[@]}"
 do
   find $path/ -maxdepth 3 -name index.html -print0 | while IFS= read -r -d $'\0' line; do
-      target=${line#${path}/}
-      fileName=$(echo "${target%/*}" | sed 's/\//\-/g')
+    target=${line#${path}/}
+    fileName=$(echo "${target%/*}" | sed 's/\//\-/g')
+    #Remove unusable Framework
+    if [[ $target != *"atmajs"* && $target != *"ariatemplate"* && $target != *"backbone_marionette_require"* ]]
+    then
       sed -e 's@FILE_URL@'${line}'@g' -e "s@FRAMEWORK@${target%/*}@g" tests/generation/template-1.3.0.js > tests/test_${fileName}.js
+    fi
   done
 done
 
