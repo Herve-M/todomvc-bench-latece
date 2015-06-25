@@ -13,7 +13,9 @@ do
     #Remove unusable Framework
     if [[ $target != *"atmajs"* && $target != *"ariatemplate"* && $target != *"backbone_marionette_require"*
        && $target != *"canjs"* && $target != *"chaplin"* && $target != *"componentjs"* && $target != *"cujo"*
-       && $target != *"emberjs"* ]]
+       && $target != *"emberjs"* && $target != *"extjs_deftjs"* && $target != *"flight"* && $target != *"lavaca_require"*
+       && $target != *"montage"* && $target != *"mozart"* && $target != *"polymer"* && $target != *"react-backbone"*
+       && $target != *"react"* && $target != *"spine"* ]]
     then
       sed -e 's@FILE_URL@'${line}'@g' -e "s@FRAMEWORK@${target%/*}@g" tests/generation/template-1.3.0.js > tests/test_${fileName}.js
     fi

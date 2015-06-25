@@ -58,11 +58,11 @@ To see all available commands use `grunt`
 * `grunt setup` : Clone TodoMVC Git repo && setup nmp/bower on master branch
 * `grunt setup-130` : Clone TodoMVC Git repo && setup npm/bowwer on 1.3.0 tag
 * `grunt generate-master` : Generate test scripts for master branch
-* `grunt generate-130` : Generate test scripts for 1.3.0 tag
+* `grunt generate-130-all` : Generate test scripts for all Framework on 1.3.0 tag
+* `grunt generate-130-tested` : Generate test scripts for all tested Framework on 1.3.0 tag
 * `grunt generate-clean` : Generate cleaning scripts for master branch
 * `grunt generate-130-clean` : Generate cleaning scripts for 1.3.0 tag
 * `grunt test-advanced-phjs` : Launch all test with PhantomJS
-* `grunt test-advanced-sljs` : Launch all test with SlimerJS
 
 ## Known limitations
 

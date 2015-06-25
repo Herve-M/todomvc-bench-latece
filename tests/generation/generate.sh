@@ -6,7 +6,9 @@ find src/app/todomvc/examples/ -maxdepth 2 -name index.html -print0 | while IFS=
   #Remove unusable Framework
   if [[ $target != *"atmajs"* && $target != *"ariatemplate"* && $target != *"backbone_marionette_require"*
     && $target != *"canjs"*  && $target != *"chaplin"* && $target != *"componentjs"* && $target != *"cujo"*
-    && $target != *"emberjs"* ]] emberjs
+    && $target != *"emberjs"* && $target != *"extjs_deftjs"* && $target != *"flight"* && $target != *"lavaca_require"*
+    && $target != *"montage"* && $target != *"mozart"* && $target != *"polymer"* && $target != *"react-backbone"*
+    && $target != *"react"* && $target != *"spine"* ]]
   then
     sed -e 's@FILE_URL@'${target2}'@g' -e "s@FRAMEWORK@${target%/*}@g" tests/generation/template.js > tests/test_${target%/*}.js
   fi
