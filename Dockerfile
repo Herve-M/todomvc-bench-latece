@@ -11,7 +11,7 @@ RUN apt-get update && apt-get install -y \
   openjdk-7-jre \
   openjdk-7-jdk \
 
-RUN git clone -b develop  https://github.com/Herve-M/todomvc-bench-latece.git
+RUN git clone -b master  https://github.com/Herve-M/todomvc-bench-latece.git
 
 WORKDIR todomvc-bench-latece
 
