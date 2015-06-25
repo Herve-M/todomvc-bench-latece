@@ -39,9 +39,12 @@ casper.test.begin('- Benchmark on [[FRAMEWORK]] -', 3, function suite(test) {
     });
   }, function then() {
     for (i = 0; i < 500; i++) {
+      //Get Focus
       this.click('input#new-todo');
+      //Keep Focus
       this.sendKeys('#new-todo', 'casperjs'+i);
-      this.sendKeys('#new-todo', casper.page.event.key.Enter);
+      //https://github.com/ariya/phantomjs/commit/cab2635e66d74b7e665c44400b8b20a8f225153a
+      this.sendKeys('#new-todo', this.page.event.key.Enter);
     }
     casper.log('Insert Finish', 'info');
   }, function timeout() {
@@ -74,5 +77,7 @@ casper.test.begin('- Benchmark on [[FRAMEWORK]] -', 3, function suite(test) {
 
   casper.run(function() {
       test.done();
+      //Wait for issue 64 to remove this line
+      test.renderResults(false, 0, 'tests/results/result_FRAMEWORK.xml');
   });
 });

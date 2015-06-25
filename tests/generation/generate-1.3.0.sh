@@ -11,7 +11,9 @@ do
     target=${line#${path}/}
     fileName=$(echo "${target%/*}" | sed 's/\//\-/g')
     #Remove unusable Framework
-    if [[ $target != *"atmajs"* && $target != *"ariatemplate"* && $target != *"backbone_marionette_require"* ]]
+    if [[ $target != *"atmajs"* && $target != *"ariatemplate"* && $target != *"backbone_marionette_require"*
+       && $target != *"canjs"* && $target != *"chaplin"* && $target != *"componentjs"* && $target != *"cujo"*
+       && $target != *"emberjs"* ]]
     then
       sed -e 's@FILE_URL@'${line}'@g' -e "s@FRAMEWORK@${target%/*}@g" tests/generation/template-1.3.0.js > tests/test_${fileName}.js
     fi
